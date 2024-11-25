@@ -53,12 +53,6 @@ jobs:
         chmod 777 LXC-DOCKER-OPEN-CONFIG.sh
         ./LXC-DOCKER-OPEN-CONFIG.sh android-kernel/arch/arm64/configs/x_defconfig -w
 
-
-    - name: 安装 ksu
-      run: |
-        cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
-        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s 0.92
-
                
     - name: 设置ccache缓存
       uses: hendrikmuhs/ccache-action@v1.2
