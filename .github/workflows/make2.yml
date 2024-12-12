@@ -43,7 +43,8 @@ jobs:
     - name: 下载内核源码
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        git clone https://github.com/EngMoPro/android_kernel_xiaomi_alioth.git android-kernel --depth=1
+        # git clone https://github.com/EngMoPro/android_kernel_xiaomi_alioth.git android-kernel --depth=1
+        git clone -b lineage-21 https://github.com/pikaaQ/android_kernel_xiaomi_sm8250.git android-kernel --depth=1
 
 
     - name: 开启lxc和docker配置
