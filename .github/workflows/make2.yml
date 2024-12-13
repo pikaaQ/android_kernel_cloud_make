@@ -51,7 +51,8 @@ jobs:
         cd $GITHUB_WORKSPACE/kernel_workspace
         # git clone https://github.com/EngMoPro/android_kernel_xiaomi_alioth.git android-kernel --depth=1
         # git clone -b lineage-21 https://github.com/pikaaQ/android_kernel_xiaomi_sm8250.git android-kernel --depth=1
-        git clone https://github.com/lamjiidii1/android_kernel_xiaomi_sm8250.git android-kernel --depth=1
+        # git clone https://github.com/lamjiidii1/android_kernel_xiaomi_sm8250.git android-kernel --depth=1
+        git clone https://github.com/NotZeetaa/android_kernel_xiaomi_sm8250-5.git android-kernel --depth=1
 
 
     - name: 开启lxc和docker配置
@@ -59,7 +60,7 @@ jobs:
         cd $GITHUB_WORKSPACE/kernel_workspace
         wget https://github.com/wu17481748/lxc-docker/releases/download/lxc-docker-2config/LXC-DOCKER-OPEN-CONFIG.sh
         chmod 777 LXC-DOCKER-OPEN-CONFIG.sh
-        ./LXC-DOCKER-OPEN-CONFIG.sh android-kernel/arch/arm64/configs/alioth_defconfig -w
+        ./LXC-DOCKER-OPEN-CONFIG.sh android-kernel/arch/arm64/configs/alioth_stock-defconfig -w
 
     - name: 安装 ksu
       run: |
@@ -81,7 +82,7 @@ jobs:
         # export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/bin:$GITHUB_WORKSPACE/kernel_workspace/gcc64/bin:$GITHUB_WORKSPACE/kernel_workspace/gcc32/bin:$PATH
         export KBUILD_BUILD_HOST=17
         export KBUILD_BUILD_USER=HyperPower
-        make -s -j$(nproc --all) O=out ARCH=arm64 SUBARCH=arm64 alioth_defconfig
+        make -s -j$(nproc --all) O=out ARCH=arm64 SUBARCH=arm64 alioth_stock-defconfig
         make -j$(nproc --all) CC="ccache clang" O=out ARCH=arm64 SUBARCH=arm64 CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=aarch64-linux-android- CROSS_COMPILE_ARM32=arm-linux-androideabi-
                 
 
