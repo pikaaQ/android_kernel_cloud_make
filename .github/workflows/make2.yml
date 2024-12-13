@@ -50,7 +50,8 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
         # git clone https://github.com/EngMoPro/android_kernel_xiaomi_alioth.git android-kernel --depth=1
-        git clone -b lineage-21 https://github.com/pikaaQ/android_kernel_xiaomi_sm8250.git android-kernel --depth=1
+        # git clone -b lineage-21 https://github.com/pikaaQ/android_kernel_xiaomi_sm8250.git android-kernel --depth=1
+        git clonehttps://github.com/lamjiidii1/android_kernel_xiaomi_sm8250.git android-kernel --depth=1
 
 
     - name: 开启lxc和docker配置
